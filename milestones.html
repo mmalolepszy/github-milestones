@@ -57,7 +57,7 @@
 			$.each(data, function(index, value){
 				var open = Number(value.open_issues);
 				var closed = Number(value.closed_issues);
-				var progress = Math.round(closed / (open+closed) * 10000)/100;
+				var progress = (open+closed != 0) ? Math.round(closed / (open+closed) * 10000)/100 : 0;
 				var isPastDue = false;
 
 				if(value.due_on !== null) {
